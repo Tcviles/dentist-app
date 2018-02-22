@@ -1,1 +1,16 @@
-"Hello World"
+<h1>Welcome to the best Dental Sinatra application EVER!!!</h1>
+
+<h2>Please select either "Sign Up" or "Log In!"</h2>
+<h2>Unless you are already logged in, then select "Home"</h2>
+
+<form action="/signup" method="GET">
+  <input type="submit" value="SIGN UP!">
+</form>
+
+<form action="/login" method="GET">
+  <input type="submit" value="LOG IN!">
+</form>
+
+<form action="/user/:id" method="GET">
+  <input type="submit" value="HOME">
+</form>

@@ -1,0 +1,9 @@
+<h1>Welcome <%=@user.name%>!!!</h1>
+
+<h2>I sure do hope you like our company!<br>Here is your info!</h2>
+
+<h3>Your dentist is currently <%=@user.dentist.name%>.<br>
+<%=@user.dentist.name%> charges and estimated $<%=@user.dentist.fee%> per visit. <br>
+<%=@user.insurance.company%> reduces that price by $<%=@user.insurance.coverage%><br><br>
+
+This brings your estimated Co-Pay to <%=(@user.dentist.fee) - (@user.insurance.coverage)%>!</h3>
