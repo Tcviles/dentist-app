@@ -7,3 +7,9 @@
 <%=@user.insurance.company%> reduces that price by $<%=@user.insurance.coverage%><br><br>
 
 This brings your estimated Co-Pay to <%=(@user.dentist.fee) - (@user.insurance.coverage)%>!</h3>
+
+<%if session[:developer?]%>
+  <form action="/dentists" method="get">
+    <input type="submit" value="Developer Options">
+  </form>
+<%end%>

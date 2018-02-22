@@ -1,0 +1,6 @@
+<form action="/dentists/<%=@dentist.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" name="name" value="<%=@dentist.name%>"><br>
+  <input type="text" name="fee" value="<%=@dentist.fee%>"><br>
+  <input type="submit" value="submit">
+</form>

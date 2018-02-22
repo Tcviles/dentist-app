@@ -9,8 +9,8 @@
   <%Dentist.all.each do |dentist|%>
     <%=dentist.name%> charges $<%=dentist.fee%><br><br>
     <form action="/dentists" method="post">
-      <input type="checkbox"  name="name" id="id" value="edit">Edit</input><br>
-      <input type="checkbox" name="name" id="id" value="delete">Delete</input><br>
+      <input type="checkbox"  name="edit" id="id" value="<%=dentist.id%>">Edit</input><br>
+      <input type="checkbox" name="delete" id="id" value="<%=dentist.id%>">Delete</input><br>
       <input type="submit" value="Submit">
     </form>
   <%end%>
