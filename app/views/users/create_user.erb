@@ -21,7 +21,7 @@
   <%@dentists.each do |dentist|%>
     <input type="checkbox" name="user[dentist_id]" id="<%= dentist.id %>" value="<%=dentist.id%>"><%=dentist.name%></input>
   <%end%><br>
-  <input  type="text" name="dentist[name]" id="denstist_name"></input>
+  <input  type="text" name="dentist[name]" id="dentist_name"></input>
 
   <input type="submit" name="" value="Welcome!">
 </form>
