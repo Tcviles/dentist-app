@@ -1,4 +1,4 @@
-class DevelopersController < ApplicationController
+class DentistController < ApplicationController
   get '/dentists/new' do
     if !!session[:developer?]
       erb :'dentists/create'

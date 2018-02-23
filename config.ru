@@ -5,6 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-use DevelopersController
+use DentistController
+use InsuranceController
 use UsersController
 run ApplicationController

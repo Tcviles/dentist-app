@@ -1,0 +1,18 @@
+<h1>Edit your info!</h1>
+
+<h2>Who is your updated doctor and insurance?</h2>
+
+<form action="/user/<%=@user.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <%Dentist.all.each do |dentist|%>
+    <%=dentist.name%> charges $<%=dentist.fee%>
+    <input type="checkbox" name="dentist" value="<%=dentist.name%>"><br>
+  <%end%>
+  <br><br>
+
+  <%Insurance.all.each do |insurance|%>
+    <%=insurance.company%> covers $<%=insurance.coverage%>
+    <input type="checkbox" name="insurance" value="<%=insurance.company%>"><br>
+  <%end%>
+  <input type="submit" name="" value="Submit">
+</form>

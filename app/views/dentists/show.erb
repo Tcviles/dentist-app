@@ -2,15 +2,15 @@
 <form action="/dentists/new" method="get">
   <input type="submit" value="Create a Dentist!"><br><br>
 </form>
-<form action="/insurances" method="get">
+<form action="/insurance" method="get">
   <input type="submit"  value="Checkout Insurances">
-</form>
+</form><br><br>
 
   <%Dentist.all.each do |dentist|%>
-    <%=dentist.name%> charges $<%=dentist.fee%><br><br>
+    <%=dentist.name%> charges $<%=dentist.fee%>
     <form action="/dentists" method="post">
       <input type="checkbox"  name="edit" id="id" value="<%=dentist.id%>">Edit</input><br>
       <input type="checkbox" name="delete" id="id" value="<%=dentist.id%>">Delete</input><br>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit"><br><br>
     </form>
   <%end%>

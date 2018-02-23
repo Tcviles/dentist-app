@@ -1,0 +1,16 @@
+<h1>Whatcha wanna do cheif??</h1>
+<form action="/insurance/new" method="get">
+  <input type="submit" value="Create an Insurance!"><br><br>
+</form>
+<form action="/dentists" method="get">
+  <input type="submit"  value="Checkout Dentists">
+</form><br><br>
+
+  <%Insurance.all.each do |insurance|%>
+    <%=insurance.company%> covers $<%=insurance.coverage%>
+    <form action="/insurance" method="post">
+      <input type="checkbox"  name="edit" id="id" value="<%=insurance.id%>">Edit</input><br>
+      <input type="checkbox" name="delete" id="id" value="<%=insurance.id%>">Delete</input><br>
+      <input type="submit" value="Submit"><br><br>
+    </form>
+  <%end%>
