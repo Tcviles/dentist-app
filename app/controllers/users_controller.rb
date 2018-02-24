@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     else
       @user = User.find_by_id(session[:user_id])
       if !@user.insurance || !@user.dentist
-        redirect to '/user/:id/edit'
+        redirect to "/user/#{session[:user_id]}/edit"
       else
         erb :'users/show'
       end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @user.dentist = Dentist.find_by(:name => params[:dentist])
     @user.insurance = Insurance.find_by(:company => params[:insurance])
     @user.save
-    redirect to "/user/:id"
+    redirect to "/user/#{session[:user_id]}"
   end
 
   get '/signup' do

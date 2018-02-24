@@ -1,9 +1,10 @@
 <h1>Edit your info!</h1>
 
 <h2>Who is your updated doctor and insurance?</h2>
-
-<form action="/user/<%=@user.id%>" method="post">
+<h2>Please select one of each</h2>
+<form action="/user/<%=session[:user_id]%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
+
   <%Dentist.all.each do |dentist|%>
     <%=dentist.name%> charges $<%=dentist.fee%>
     <input type="checkbox" name="dentist" value="<%=dentist.name%>"><br>

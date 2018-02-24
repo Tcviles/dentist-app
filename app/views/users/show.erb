@@ -14,10 +14,10 @@ This brings your estimated Co-Pay to <%=(@user.dentist.fee) - (@user.insurance.c
   </form>
 <%end%>
 
-<form action="/user/<%=@user.id%>/edit" method="get">
+<form action="/user/<%=session[:user_id]%>/edit" method="get">
   <input type="submit" name="" value="Edit Info">
 </form>
 
-<form action="/user/<%=@user.id%>/delete" method="get">
+<form action="/user/<%=session[:user_id]%>/delete" method="get">
   <input type="submit" value="Delete Acct">
 </form>
