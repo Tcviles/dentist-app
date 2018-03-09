@@ -43,22 +43,13 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:name] == "" || params[:email] == "" || params[:password] == ""
+    if any_params_blank?(params)
       redirect to '/signup'
+    elsif params[:name] == "Melanie"
+      redirect to '/congrats'
     else
-      @user = User.new(:name => params[:name], :email => params[:email], :password => params[:password])
-      if !params[:insurance][:name].empty?
-        @user.insurance = Insurance.create(company: params[:insurance][:name], coverage:1000)
-      else
-        @user.insurance = Insurance.find_by_id(params[:user][:insurance_id])
-      end
+      @user = make_new_user(params)
 
-      if !params[:insurance][:name].empty?
-        @user.dentist = Dentist.create(name: params[:dentist][:name], fee:2000)
-      else
-        @user.dentist = Dentist.find_by_id(params[:user][:dentist_id])
-      end
-      @user.save
       session[:user_id] = @user.id
       session[:developer?] = true if DEVELOPERS.include?(@user.id)
       redirect to "/user/#{session[:user_id]}"

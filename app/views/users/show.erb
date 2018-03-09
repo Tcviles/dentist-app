@@ -10,14 +10,14 @@ This brings your estimated Co-Pay to <%=(@user.dentist.fee) - (@user.insurance.c
 
 <%if session[:developer?]%>
   <form action="/dentists" method="get">
-    <input type="submit" value="Developer Options">
-  </form>
+    <input type="submit" value="Developer Options" class="button">
+  </form><br><br>
 <%end%>
 
 <form action="/user/<%=session[:user_id]%>/edit" method="get">
-  <input type="submit" name="" value="Edit Info">
-</form>
+  <input type="submit" name="" value="Edit Info" class="button">
+</form><br><br>
 
 <form action="/user/<%=session[:user_id]%>/delete" method="get">
-  <input type="submit" value="Delete Acct">
+  <input type="submit" value="Delete Acct" class="button">
 </form>

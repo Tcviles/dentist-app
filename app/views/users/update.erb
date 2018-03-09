@@ -6,14 +6,14 @@
   <input id="hidden" type="hidden" name="_method" value="PATCH">
 
   <%Dentist.all.each do |dentist|%>
-    <%=dentist.name%> charges $<%=dentist.fee%>
-    <input type="checkbox" name="dentist" value="<%=dentist.name%>"><br>
+    <h4><%=dentist.name%> charges $<%=dentist.fee%>
+    <input type="radio" name="dentist" value="<%=dentist.name%>"></h4>
   <%end%>
   <br><br>
 
   <%Insurance.all.each do |insurance|%>
-    <%=insurance.company%> covers $<%=insurance.coverage%>
-    <input type="checkbox" name="insurance" value="<%=insurance.company%>"><br>
+    <h4><%=insurance.company%> covers $<%=insurance.coverage%>
+    <input type="radio" name="insurance" value="<%=insurance.company%>"></h4>
   <%end%>
-  <input type="submit" name="" value="Submit">
+  <input type="submit" name="" value="Submit" class="button">
 </form>

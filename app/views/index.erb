@@ -3,15 +3,15 @@
 
 <%if logged_in?%>
   <form action="/user/<%=session[:user_id]%>" method="GET">
-    <input class= "bigger" type="submit" value="HOME">
+    <input class="button" type="submit" value="HOME">
   </form>
 <%else%>
 <br>
   <form action="/signup" method="GET">
-    <input type="submit" value="SIGN UP!">
+    <input type="submit" value="SIGN UP!" class="button">
   </form><br><br>
 
   <form action="/login" method="GET">
-    <input type="submit" value="LOG IN!">
+    <input type="submit" value="LOG IN!" class="button">
   </form>
 <%end%>
