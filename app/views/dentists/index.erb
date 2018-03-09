@@ -1,0 +1,6 @@
+<%Dentist.all.each do |dentist|%>
+  <form action="/dentists/<%=dentist.id%>" method="get">
+    <label><%=dentist.name%></label>
+    <input type="submit" value="Visit" class="small_button">
+  </form>
+<%end%>

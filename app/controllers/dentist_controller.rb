@@ -1,4 +1,11 @@
 class DentistController < ApplicationController
+  get '/dentists/:id' do
+    puts "Hello world"
+    @dentist = Dentist.find_by_id(params[:id])
+    @comments = Comment.all.collect{|comment| comment.dentist_id == params[:id]}
+    erb :'dentists/show'
+  end
+
   get '/dentists/new' do
     if !!session[:developer?]
       erb :'dentists/create'
@@ -12,11 +19,12 @@ class DentistController < ApplicationController
     redirect to '/dentists'
   end
 
+
   get '/dentists' do
     if !!session[:developer?]
-      erb :'dentists/show'
+      erb :'dentists/devshow'
     else
-      redirect to '/'
+      erb :'dentists/index'
     end
   end
 

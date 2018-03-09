@@ -43,13 +43,11 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if any_params_blank?(params)
+    @user = make_new_user(params)
+    if @user.id.nil?
+      @errors = @user.errors
       redirect to '/signup'
-    elsif params[:name] == "Melanie"
-      redirect to '/congrats'
     else
-      @user = make_new_user(params)
-
       session[:user_id] = @user.id
       session[:developer?] = true if DEVELOPERS.include?(@user.id)
       redirect to "/user/#{session[:user_id]}"

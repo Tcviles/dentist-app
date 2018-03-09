@@ -18,6 +18,10 @@ This brings your estimated Co-Pay to <%=(@user.dentist.fee) - (@user.insurance.c
   <input type="submit" name="" value="Edit Info" class="button">
 </form><br><br>
 
+<form action="/dentists" method="get">
+  <input type="submit" name="" value="Shop Dentists" class="button">
+</form><br><br>
+
 <form action="/user/<%=session[:user_id]%>/delete" method="get">
   <input type="submit" value="Delete Acct" class="button">
 </form>

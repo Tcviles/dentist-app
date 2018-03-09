@@ -1,0 +1,16 @@
+<h1>Whatcha wanna do cheif??</h1>
+<form action="/dentists/new" method="get">
+  <input type="submit" value="Create a Dentist!" class="button"><br><br>
+</form>
+<form action="/insurance" method="get">
+  <input type="submit"  value="Checkout Insurances" class="button">
+</form><br><br>
+
+  <%Dentist.all.each do |dentist|%>
+    <%=dentist.name%> charges $<%=dentist.fee%>
+    <form action="/dentists" method="post">
+      <input type="radio"  name="edit" id="id" value="<%=dentist.id%>">Edit</input><br>
+      <input type="radio" name="delete" id="id" value="<%=dentist.id%>">Delete</input><br>
+      <input type="submit" value="Submit" class="small_button"><br><br>
+    </form>
+  <%end%>
