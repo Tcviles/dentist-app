@@ -1,19 +1,17 @@
-<section id="content" class="wrapper">
-  <h1>Welcome to the best Dental Sinatra application EVER!!!</h1>
-  <img class="irc_mi" src="http://5star-dental.com/wp-content/uploads/2016/04/8.2.jpg" alt="Image result for dentist office" width="530" height="353" style="margin-top: 0px;">
+<h1>Welcome to the best Dental Sinatra application EVER!!!</h1>
+<img class="irc_mi" src="http://5star-dental.com/wp-content/uploads/2016/04/8.2.jpg" width="530" height="353">
 
-  <%if logged_in?%>
-    <form action="/user/<%=session[:user_id]%>" method="GET">
-      <input class="button" type="submit" value="HOME">
-    </form>
-  <%else%>
-  <br>
-    <form action="/signup" method="GET">
-      <input type="submit" value="SIGN UP!" class="button">
-    </form><br><br>
+<%if logged_in?%>
+  <form action="/user/<%=session[:user_id]%>" method="GET">
+    <input class="small_button" type="submit" value="HOME">
+  </form>
+<%else%>
+<br>
+  <form action="/signup" method="GET">
+    <input type="submit" value="SIGN UP!" class="small_button">
+  </form><br><br>
 
-    <form action="/login" method="GET">
-      <input type="submit" value="LOG IN!" class="button">
-    </form>
-  <%end%>
-</section>
+  <form action="/login" method="GET">
+    <input type="submit" value="LOG IN!" class="small_button">
+  </form>
+<%end%>

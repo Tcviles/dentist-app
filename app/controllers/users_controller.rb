@@ -57,10 +57,6 @@ class UsersController < ApplicationController
   end
 
   get '/congrats' do
-    erb :congrats
-  end
-
-  get '/real-suprise' do
     erb :suprise
   end
 
@@ -79,26 +75,22 @@ class UsersController < ApplicationController
       session[:developer?] = true if DEVELOPERS.include?(@user.id)
       redirect "/user/#{session[:user_id]}"
     else
-      redirect to '/signup'
+      redirect to '/login'
     end
   end
 
   get '/logout' do
     if logged_in?
       session.destroy
-      redirect to '/'
-    else
-      redirect to '/'
     end
+    redirect to '/'
   end
 
   get '/user/:id/delete' do
     if session[:user_id] == params[:id].to_i
       @user = User.find_by_id(params[:id])
       @user.delete
-      redirect to '/'
-    else
-      redirect to '/'
     end
+    redirect to '/'
   end
 end

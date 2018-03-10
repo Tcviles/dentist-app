@@ -1,6 +1,10 @@
-<%Dentist.all.each do |dentist|%>
-  <form action="/dentists/<%=dentist.id%>" method="get">
+<%@dentist.each do |dentist|%>
+  <div class="each_comment">
     <label><%=dentist.name%></label>
-    <input type="submit" value="Visit" class="small_button"><br><br>
-  </form>
+    <a href="/dentists/<%=dentist.id%>" class="small_button">Visit</a>
+    <% if !!session[:developer?] %>
+      <a href="/dentists/<%=dentist.id%>/edit" class="small_button">Edit</a>
+      <a href="/dentists/<%=dentist.id%>/delete" class="small_button">Delete</a>
+    <%end%>
+  </div>
 <%end%>

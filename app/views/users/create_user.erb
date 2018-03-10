@@ -4,9 +4,9 @@
   <h2>We will need some info from you!</h2>
 
   <form action="/signup" method="post">
-    <label>Name:<input type="text" name="name"></label><br>
-    <label>Email:<input type="text" name="email"></label><br>
-    <label>Password:<input type="password" name="password"></label><br>
+    <label>Name:<input type="text" name="name" required></label><br>
+    <label>Email:<input type="text" name="email" required></label><br>
+    <label>Password:<input type="password" name="password" required></label><br>
 
     <h2>We also need your insurance and dentist info!</h2>
     <h4>Choose from below or type in if not found</h4>
@@ -23,5 +23,5 @@
     <%end%><br>
     <input  type="text" name="dentist[name]" id="dentist_name"></input>
 
-    <input type="submit" name="" value="Welcome!" class="button">
+    <input type="submit" name="" value="Welcome!" class="small_button">
   </form>

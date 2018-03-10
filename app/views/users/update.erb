@@ -9,14 +9,14 @@
 
     <%@dentists.each do |dentist|%>
       <h4><%=dentist.name%> charges $<%=dentist.fee%>
-      <input type="radio" name="dentist" value="<%=dentist.name%>"></h4>
+      <input type="radio" name="dentist" value="<%=dentist.name%>" required></h4>
     <%end%>
   </section><br>
 
   <section id="content" class="wrapper">
     <%@insurances.each do |insurance|%>
       <h4><%=insurance.company%> covers $<%=insurance.coverage%>
-      <input type="radio" name="insurance" value="<%=insurance.company%>"></h4>
+      <input type="radio" name="insurance" value="<%=insurance.company%>" required></h4>
     <%end%>
-    <input type="submit" name="" value="Submit" class="button">
+    <input type="submit" name="" value="Submit" class="small_button">
   </form>

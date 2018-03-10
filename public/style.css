@@ -1,27 +1,7 @@
-.button {
-  padding: 15px 25px;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-}
-
-.button:hover {background-color: #3e8e41}
-
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
 .small_button {
   padding: 8px 16px;
-  font-size: 14px;
+  margin-top: 20px;
+  font-size: 16px;
   text-align: center;
   cursor: pointer;
   outline: none;
@@ -42,6 +22,8 @@
 
 .each_comment {
   font-size: 120%;
+  padding: 15px;
+  min-height: 40px;
   border-style:double;
   border-width: thick;
   border-color: green;
@@ -50,21 +32,6 @@
 #dentist_comments {
   overflow: auto;
   height: 350px;
-}
-
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  height: 20px;
-  line-height: 20px;
 }
 
 .wrapper {
@@ -76,4 +43,19 @@ section {
   padding: 20px;
   margin-bottom: 20px;
   background: powderblue;
+}
+
+img, video, audio, iframe, table, form {
+  width: 100%; /* IE */
+  max-width: 100%; /* FF, Safari, Chrome */
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 0.75em;
+  background: #eee;
 }

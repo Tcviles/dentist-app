@@ -22,6 +22,7 @@ class DentistController < ApplicationController
   end
 
   get '/dentists' do
+    @dentist = Dentist.all
     erb :'dentists/index'
   end
 
@@ -71,8 +72,8 @@ class DentistController < ApplicationController
     if !!session[:developer?]
       @dentist = Dentist.find_by_id(params[:id])
       @dentist.delete
-      redirect to '/dentists'
     end
+    redirect to '/dentists'
   end
 
   get '/comments/:id/edit' do
