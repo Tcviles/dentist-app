@@ -1,7 +1,25 @@
-<label style= "font-size: 300%;"><%= @dentist.name %> charges $<%= @dentist.fee %></label>
+<label style= "font-size: 300%;"><%= @dentist.name %> charges $<%= @dentist.fee %></label><br><br><br>
 
-<% if @comments.any? %>
-  <%= @comments.each do |comment|%>
-    <%= comment %>
-  <% end %>
+
+
+<form action="/dentists/<%=@dentist.id%>" method = "post">
+  <label> Create a comment <%= @user.name %>??</label><br>
+  <textarea name="content" value="Type here!" style="height:100px; width:250px;"></textarea>
+  <input type="submit" value="Submit!">
+</form>
+
+<br><br><br>
+<% @comments.each do |comment| %>
+  <div class="each_comment">
+    <label><%= comment.user.name%></label> wrote
+    <p>"<%= comment.content %>"</p><br>
+    <% if session[:user_id] == comment.user_id %>
+      <form action="/comments/<%=comment.id%>/edit" method="get">
+        <input type="submit" value="Edit">
+      </form>
+      <form action="/comments/<%=comment.id%>/delete" method="get">
+        <input type="submit"  value="Delete">
+      </form>
+    <% end %>
+  </div><br>
 <% end %>

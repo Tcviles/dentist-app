@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309131459) do
+ActiveRecord::Schema.define(version: 20180310174850) do
 
   create_table "comments", force: :cascade do |t|
-    t.text    "title"
     t.text    "content"
     t.integer "dentist_id"
     t.integer "user_id"

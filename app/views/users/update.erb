@@ -5,13 +5,13 @@
 <form action="/user/<%=session[:user_id]%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
 
-  <%Dentist.all.each do |dentist|%>
+  <%@dentists.each do |dentist|%>
     <h4><%=dentist.name%> charges $<%=dentist.fee%>
     <input type="radio" name="dentist" value="<%=dentist.name%>"></h4>
   <%end%>
   <br><br>
 
-  <%Insurance.all.each do |insurance|%>
+  <%@insurances.each do |insurance|%>
     <h4><%=insurance.company%> covers $<%=insurance.coverage%>
     <input type="radio" name="insurance" value="<%=insurance.company%>"></h4>
   <%end%>

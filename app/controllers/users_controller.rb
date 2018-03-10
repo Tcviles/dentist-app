@@ -19,6 +19,8 @@ class UsersController < ApplicationController
     if !logged_in?
       redirect to '/'
     else
+      @dentists = Dentist.all
+      @insurances = Insurance.all
       @user = User.find_by_id(session[:user_id])
       erb :'users/update'
     end

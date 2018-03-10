@@ -2,11 +2,11 @@
 <form action="/insurance/new" method="get">
   <input type="submit" value="Create an Insurance!" class="button"><br><br>
 </form>
-<form action="/dentists" method="get">
+<form action="/dentists/dev" method="get">
   <input type="submit"  value="Checkout Dentists" class="button">
 </form><br><br>
 
-  <%Insurance.all.each do |insurance|%>
+  <%@insurances.each do |insurance|%>
     <%=insurance.company%> covers $<%=insurance.coverage%>
     <form action="/insurance" method="post">
       <input type="radio"  name="edit" id="id" value="<%=insurance.id%>">Edit</input><br>

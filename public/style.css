@@ -39,3 +39,10 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+.each_comment {
+  font-size: 120%;
+  border-style:double;
+  border-width: thick;
+  border-color: green;
+}

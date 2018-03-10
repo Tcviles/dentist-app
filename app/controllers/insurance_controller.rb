@@ -14,6 +14,7 @@ class InsuranceController < ApplicationController
 
   get '/insurance' do
     if !!session[:developer?]
+      @insurances = Insurance.all
       erb :'insurance/show'
     else
       redirect to '/'

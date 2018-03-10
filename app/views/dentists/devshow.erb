@@ -6,7 +6,7 @@
   <input type="submit"  value="Checkout Insurances" class="button">
 </form><br><br>
 
-  <%Dentist.all.each do |dentist|%>
+  <%@dentists.each do |dentist|%>
     <%=dentist.name%> charges $<%=dentist.fee%>
     <form action="/dentists" method="post">
       <input type="radio"  name="edit" id="id" value="<%=dentist.id%>">Edit</input><br>
