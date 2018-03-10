@@ -1,25 +1,22 @@
-<label style= "font-size: 300%;"><%= @dentist.name %> charges $<%= @dentist.fee %></label><br><br><br>
+  <label style= "font-size: 300%;"><%= @dentist.name %> charges $<%= @dentist.fee %></label>
+</section><br>
 
+<section id="content" class="wrapper">
+  <form action="/dentists/<%=@dentist.id%>" method = "post">
+    <label style="font-size:150%;"> Create a comment <%= @user.name %>??</label><br>
+    <textarea name="content" value="Type here!" style="height:100px; width:250px;"></textarea>
+    <input type="submit" value="Submit!" class="small_button">
+  </form>
+</section><br>
 
-
-<form action="/dentists/<%=@dentist.id%>" method = "post">
-  <label> Create a comment <%= @user.name %>??</label><br>
-  <textarea name="content" value="Type here!" style="height:100px; width:250px;"></textarea>
-  <input type="submit" value="Submit!">
-</form>
-
-<br><br><br>
-<% @comments.each do |comment| %>
-  <div class="each_comment">
-    <label><%= comment.user.name%></label> wrote
-    <p>"<%= comment.content %>"</p><br>
-    <% if session[:user_id] == comment.user_id %>
-      <form action="/comments/<%=comment.id%>/edit" method="get">
-        <input type="submit" value="Edit">
-      </form>
-      <form action="/comments/<%=comment.id%>/delete" method="get">
-        <input type="submit"  value="Delete">
-      </form>
-    <% end %>
-  </div><br>
-<% end %>
+<section id="dentist_comments" class="wrapper">
+  <% @comments.each do |comment| %>
+    <div class="each_comment">
+      <label><%= comment.user.name%></label> wrote
+      <p>"<%= comment.content %>"</p>
+      <% if session[:user_id] == comment.user_id %>
+        <a href="/comments/<%=comment.id%>/edit" class="small_button">Edit</a>
+        <a href="/comments/<%=comment.id%>/delete" class="small_button">Delete</a><br><br>
+      <% end %>
+    </div><br>
+  <% end %>

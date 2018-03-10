@@ -1,19 +1,22 @@
-<h1>Edit your info!</h1>
+  <h1>Edit your info!</h1>
+</section><br>
 
-<h2>Who is your updated doctor and insurance?</h2>
-<h2>Please select one of each</h2>
-<form action="/user/<%=session[:user_id]%>" method="post">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
+<section id="content" class="wrapper">
+  <h2>Who is your updated doctor and insurance?</h2>
+  <h2>Please select one of each</h2>
+  <form action="/user/<%=session[:user_id]%>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
 
-  <%@dentists.each do |dentist|%>
-    <h4><%=dentist.name%> charges $<%=dentist.fee%>
-    <input type="radio" name="dentist" value="<%=dentist.name%>"></h4>
-  <%end%>
-  <br><br>
+    <%@dentists.each do |dentist|%>
+      <h4><%=dentist.name%> charges $<%=dentist.fee%>
+      <input type="radio" name="dentist" value="<%=dentist.name%>"></h4>
+    <%end%>
+  </section><br>
 
-  <%@insurances.each do |insurance|%>
-    <h4><%=insurance.company%> covers $<%=insurance.coverage%>
-    <input type="radio" name="insurance" value="<%=insurance.company%>"></h4>
-  <%end%>
-  <input type="submit" name="" value="Submit" class="button">
-</form>
+  <section id="content" class="wrapper">
+    <%@insurances.each do |insurance|%>
+      <h4><%=insurance.company%> covers $<%=insurance.coverage%>
+      <input type="radio" name="insurance" value="<%=insurance.company%>"></h4>
+    <%end%>
+    <input type="submit" name="" value="Submit" class="button">
+  </form>

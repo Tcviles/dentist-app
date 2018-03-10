@@ -1,27 +1,21 @@
-<h1>Welcome <%=@user.name%>!!!</h1>
+  <label style="font-size:200%;">Welcome <%=@user.name%>!!!</label>
+</section><br>
 
-<h2>I sure do hope you like our company!<br>Here is your info!</h2>
+<section id="content" class="wrapper">
+  <h2>I sure do hope you like our company!<br>Here is your info!</h2>
 
-<h3>Your dentist is currently <%=@user.dentist.name%>.<br>
-<%=@user.dentist.name%> charges and estimated $<%=@user.dentist.fee%> per visit. <br>
-<%=@user.insurance.company%> reduces that price by $<%=@user.insurance.coverage%><br><br>
+  <h3>Your dentist is currently <%=@user.dentist.name%>.<br>
+  <%=@user.dentist.name%> charges and estimated $<%=@user.dentist.fee%> per visit. <br>
+  <%=@user.insurance.company%> reduces that price by $<%=@user.insurance.coverage%><br><br>
 
-This brings your estimated Co-Pay to <%=(@user.dentist.fee) - (@user.insurance.coverage)%>!</h3>
+  This brings your estimated Co-Pay to <%=(@user.dentist.fee) - (@user.insurance.coverage)%>!</h3>
+</section><br>
 
-<%if session[:developer?]%>
-  <form action="/dentists/dev" method="get">
-    <input type="submit" value="Developer Options" class="button">
-  </form><br><br>
-<%end%>
+<section id="content" class="wrapper">
+  <%if session[:developer?]%>
+    <a href="/dentists/dev" class="small_button">Admin Options</a>
+  <%end%>
 
-<form action="/user/<%=session[:user_id]%>/edit" method="get">
-  <input type="submit" name="" value="Edit Info" class="button">
-</form><br><br>
-
-<form action="/dentists" method="get">
-  <input type="submit" name="" value="Shop Dentists" class="button">
-</form><br><br>
-
-<form action="/user/<%=session[:user_id]%>/delete" method="get">
-  <input type="submit" value="Delete Acct" class="button">
-</form>
+  <a href="/user/<%=session[:user_id]%>/edit" class="small_button">Edit Info</a>
+  <a href="/dentists" class="small_button">Shop Dentists</a>
+  <a href="/user/<%=session[:user_id]%>/delete" class="small_button">Delete Account</a>

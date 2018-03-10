@@ -5,15 +5,19 @@
     <link rel="stylesheet" href="/style.css"/>
   </head>
 
-  <body style="background-color:powderblue; margin: 10px 50px;">
-    <% if logged_in?%>
-      <a href="/user/<%=session[:user_id]%>" class="small_button">Home!</a>
-      <a href="/logout" class="small_button">Log Out!</a>
-    <% else %>
-      <a href="/login" class="small_button">Log In!</a>
-      <a href="/signup" class="small_button">Sign Up!</a>
-    <% end %>
+  <body style="background-image:url(https://image.freepik.com/free-photo/old-grunge-dark-textured-wooden-background-the-surface-of-the-old-brown-wood-texture_7182-333.jpg); margin: 10px 50px;">
+    <section id="top_buttons" class="wrapper">
+      <% if logged_in?%>
+        <a href="/user/<%=session[:user_id]%>" class="small_button">Home!</a>
+        <a href="/logout" class="small_button">Log Out!</a>
+      <% else %>
+        <a href="/login" class="small_button">Log In!</a>
+        <a href="/signup" class="small_button">Sign Up!</a>
+      <% end %>
+    </section>
     <br><br>
-    <%= yield %>
+    <section id="content" class="wrapper">
+      <%= yield %>
+    </section>
   </body>
 </html>
