@@ -1,6 +1,15 @@
-<form action="/insurance/<%=@insurance.id%>" method="post">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <input type="text" name="company" value="<%=@insurance.company%>"><br>
-  <input type="text" name="coverage" value="<%=@insurance.coverage%>"><br>
-  <input type="submit" value="submit" class="small_button">
-</form>
+<section class="col-3 first clearfix">
+  <label>Edit <%=@insurance.company%></label>
+  <a href="/insurance" style="float:right;" class="small_button">Back to Index</a>
+</section>
+
+<section class="col-3 first clearfix">
+  <form action="/insurance/<%=@insurance.id%>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <label>Company Name:</label>
+    <input type="text" name="company" value="<%=@insurance.company%>"><br>
+    <label>Coverage:</label>
+    <input type="text" name="coverage" value="<%=@insurance.coverage%>"><br>
+    <input type="submit" value="submit" class="small_button">
+  </form>
+</section>

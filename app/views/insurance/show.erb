@@ -1,16 +1,19 @@
-<h1>Whatcha wanna do cheif??</h1>
-<form action="/insurance/new" method="get">
-  <input type="submit" value="Create an Insurance!" class="small_button"><br><br>
-</form>
-<form action="/dentists/dev" method="get">
-  <input type="submit"  value="Checkout Dentists" class="small_button">
-</form><br><br>
+<% if !!session[:developer?]%>
+  <section class="col-3 first clearfix">
+    <label class="title">Welcome Admin!</label><br><br>
+    <a href="/insurance/new" class="small_button">Create a new Insurance</a>
+    <a href="/dentists" class="small_button">Checkout Dentists</a><br><br>
+  </section>
+<%end%>
 
+<section class="col-3 first clearfix">
   <%@insurances.each do |insurance|%>
-    <%=insurance.company%> covers $<%=insurance.coverage%>
-    <form action="/insurance" method="post">
-      <input type="radio"  name="edit" id="id" value="<%=insurance.id%>">Edit</input><br>
-      <input type="radio" name="delete" id="id" value="<%=insurance.id%>">Delete</input><br>
-      <input type="submit" value="Submit" class="small_button"><br><br>
-    </form>
+    <div class="each_comment">
+      <label><%=insurance.company%> covers $<%=insurance.coverage%></label>
+      <% if !!session[:developer?] %>
+        <a href="/insurance/<%=insurance.id%>/edit" class="small_button">Edit</a>
+        <a href="/insurance/<%=insurance.id%>/delete" class="small_button">Delete</a>
+      <%end%>
+    </div>
   <%end%>
+</section>

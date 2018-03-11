@@ -31,7 +31,7 @@
 
 #dentist_comments {
   overflow: auto;
-  height: 350px;
+  max-height: 350px;
 }
 
 .wrapper {
@@ -39,8 +39,65 @@
   margin: 0 auto;
 }
 
+.col-1 {
+  float: left;
+  width: 32%;
+}
+
+.col-2 {
+  float: left;
+  width: 66%;
+}
+
+.col-3 p {
+  -moz-column-rule: 1px dotted #ccc;
+  -webkit-column-rule: 1px dotted #ccc;
+  column-rule: 1px dotted #ccc;
+  -moz-column-gap: 1.5em;
+  -webkit-column-gap: 1.5em;
+  column-gap: 1.5em;
+  -moz-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
+}
+
+[class*="col-"] {
+  margin-left: 2%;
+}
+
+.first {
+  margin-left: 0%;
+}
+
+.title {
+  font-size: 200%;
+}
+
+
+label {
+  font-weight: bolder;
+  font-size: 150%;
+  margin-left: 0;
+}
+
+textarea {
+  height:100px;
+  width:250px;
+}
+
+input {
+  font-size: 150%;
+  max-width: 100%;
+}
+
+body {
+  background-image:url(https://image.freepik.com/free-photo/old-grunge-dark-textured-wooden-background-the-surface-of-the-old-brown-wood-texture_7182-333.jpg);
+  margin: 10px 50px;
+}
+
 section {
-  padding: 20px;
+  border: solid;
+  padding: 10px;
   margin-bottom: 20px;
   background: powderblue;
 }
@@ -52,10 +109,31 @@ img, video, audio, iframe, table, form {
 
 footer {
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   text-align: center;
   font-size: 0.75em;
   background: #eee;
+}
+
+/*////////// FIXES //////////*/
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+.clear {
+  clear:both;
 }

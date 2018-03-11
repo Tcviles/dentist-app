@@ -13,24 +13,8 @@ class InsuranceController < ApplicationController
   end
 
   get '/insurance' do
-    if !!session[:developer?]
-      @insurances = Insurance.all
-      erb :'insurance/show'
-    else
-      redirect to '/'
-    end
-  end
-
-  post'/insurance' do
-    if !!params[:edit]
-      @insurance = Insurance.find_by_id(params[:edit])
-      redirect to "/insurance/#{@insurance.id}/edit"
-    elsif !!params[:delete]
-      @insurance = Insurance.find_by_id(params[:delete])
-      redirect to "/insurance/#{@insurance.id}/delete"
-    else
-      redirect to '/insurance'
-    end
+    @insurances = Insurance.all
+    erb :'insurance/show'
   end
 
   patch '/insurance/:id' do

@@ -1,10 +1,20 @@
-<%@dentist.each do |dentist|%>
-  <div class="each_comment">
-    <label><%=dentist.name%></label>
-    <a href="/dentists/<%=dentist.id%>" class="small_button">Visit</a>
-    <% if !!session[:developer?] %>
-      <a href="/dentists/<%=dentist.id%>/edit" class="small_button">Edit</a>
-      <a href="/dentists/<%=dentist.id%>/delete" class="small_button">Delete</a>
-    <%end%>
-  </div>
+<% if !!session[:developer?]%>
+  <section class="col-3 first clearfix">
+    <label class="title">Welcome Admin!</label><br><br>
+    <a href="/dentists/new" class="small_button">Create a new Dentist</a>
+    <a href="/insurance" class="small_button">Checkout Insurances</a><br><br>
+  </section>
 <%end%>
+
+<section class="col-3 first clearfix">
+  <%@dentist.each do |dentist|%>
+    <div class="each_comment">
+      <label><%=dentist.name%></label>
+      <a href="/dentists/<%=dentist.id%>" class="small_button">Visit</a>
+      <% if !!session[:developer?] %>
+        <a href="/dentists/<%=dentist.id%>/edit" class="small_button">Edit</a>
+        <a href="/dentists/<%=dentist.id%>/delete" class="small_button">Delete</a>
+      <%end%>
+    </div><br>
+  <%end%>
+</section>

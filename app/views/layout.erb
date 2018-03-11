@@ -5,20 +5,28 @@
     <link rel="stylesheet" href="/style.css"/>
   </head>
 
-  <body style="background-image:url(https://image.freepik.com/free-photo/old-grunge-dark-textured-wooden-background-the-surface-of-the-old-brown-wood-texture_7182-333.jpg); margin: 10px 50px;">
-    <section id="top_buttons" class="wrapper">
-      <% if logged_in?%>
-        <a href="/user/<%=session[:user_id]%>" class="small_button">Home!</a>
-        <a href="/logout" class="small_button">Log Out!</a>
-      <% else %>
-        <a href="/login" class="small_button">Log In!</a>
-        <a href="/signup" class="small_button">Sign Up!</a>
-      <% end %>
-    </section>
-    <br><br>
-    <section id="content" class="wrapper">
+  <body>
+    <div id="top_buttons" class="wrapper clearfix">
+      <section class="col-3 first clearfix">
+        <div style="float:left;">
+          <label class="title">BrainTeam Dental Services!</label>
+        </div>
+        <div style="float:right;">
+          <% if logged_in?%>
+            <a href="/user/<%=session[:user_id]%>" class="small_button">Home!</a>
+            <a href="/logout" class="small_button">Log Out!</a>
+          <% else %>
+            <a href="/login" class="small_button">Log In!</a>
+            <a href="/signup" class="small_button">Sign Up!</a>
+          <% end %>
+        </div>
+      </section>
+    </div><br>
+
+    <div class="wrapper">
       <%= yield %>
-    </section>
+    </div>
+
     <footer>
       &copy; 2018 BrainTeam Technology. All Rights Reserved.
     </footer>

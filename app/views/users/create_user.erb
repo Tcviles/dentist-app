@@ -1,27 +1,33 @@
-  <h1>Welcome New Patient!!!</h1>
-</section><br>
-<section id="content" class="wrapper">
-  <h2>We will need some info from you!</h2>
+  <section class="col-3 first clearfix">
+    <label class="title">Welcome New Patient!!!</label>
+  </section>
+</div>
 
-  <form action="/signup" method="post">
-    <label>Name:<input type="text" name="name" required></label><br>
-    <label>Email:<input type="text" name="email" required></label><br>
-    <label>Password:<input type="password" name="password" required></label><br>
+<div id="content" class="wrapper">
+  <section class="col-1 first">
+    <h2>We will need some info from you!</h2>
 
-    <h2>We also need your insurance and dentist info!</h2>
-    <h4>Choose from below or type in if not found</h4>
+    <form action="/signup" method="post">
+      <label>Name:<input type="text" name="name" required></label><br>
+      <label>Email:<input type="text" name="email" required></label><br>
+      <label>Password:<input type="password" name="password" required></label><br>
+    </section>
+    <section class="col-2 clearfix">
+      <h2>We also need your insurance and dentist info!</h2>
+      <h4>Choose from below or type in if not found</h4>
 
-    <h4>Insurance</h4>
-    <%@insurances.each do |insurance|%>
+      <label>Insurance</label><br><br>
+      <%@insurances.each do |insurance|%>
       <input type="radio" name="user[insurance_id]" id="<%= insurance.id %>" value="<%=insurance.id%>"><%=insurance.company%></input>
-    <%end%><br>
-    <input  type="text" name="insurance[name]" id="insurance_name"></input><br>
+      <%end%><br>
+      <input  type="text" name="insurance[name]" id="insurance_name"></input><br><br>
 
-    <h4>Dentist</h4>
-    <%@dentists.each do |dentist|%>
+      <label>Dentist</label><br><br>
+      <%@dentists.each do |dentist|%>
       <input type="radio" name="user[dentist_id]" id="<%= dentist.id %>" value="<%=dentist.id%>"><%=dentist.name%></input>
-    <%end%><br>
-    <input  type="text" name="dentist[name]" id="dentist_name"></input>
+      <%end%><br>
+      <input  type="text" name="dentist[name]" id="dentist_name"></input><br><br>
 
-    <input type="submit" name="" value="Welcome!" class="small_button">
-  </form>
+      <input type="submit" name="" value="Welcome!" class="small_button">
+    </form>
+  </section>

@@ -1,12 +1,4 @@
 class DentistController < ApplicationController
-  get '/dentists/dev' do
-    if !!session[:developer?]
-      @dentists = Dentist.all
-      erb :'dentists/devshow'
-    else
-      erb :'/'
-    end
-  end
 
   get '/dentists/new' do
     if !!session[:developer?]
@@ -24,18 +16,6 @@ class DentistController < ApplicationController
   get '/dentists' do
     @dentist = Dentist.all
     erb :'dentists/index'
-  end
-
-  post'/dentists' do
-    if !!params[:edit]
-      @dentist = Dentist.find_by_id(params[:edit])
-      redirect to "/dentists/#{@dentist.id}/edit"
-    elsif !!params[:delete]
-      @dentist = Dentist.find_by_id(params[:delete])
-      redirect to "/dentists/#{@dentist.id}/delete"
-    else
-      redirect to '/dentists'
-    end
   end
 
   get '/dentists/:id' do
@@ -77,6 +57,7 @@ class DentistController < ApplicationController
   end
 
   get '/comments/:id/edit' do
+    @comments = Comment.all.select{|comment| comment.user_id == session[:user_id].to_i}
     @comment = Comment.find_by_id(params[:id])
     @dentist = Dentist.find_by_id(@comment.dentist_id)
     if session[:user_id] == @comment.user_id
